@@ -9,9 +9,12 @@
 void bubble_sort(int *array, size_t size)
 {
 	unsigned long int i, k, j;
+	int swapped;
 
 	for (k = 0; k < size - 1; k++)
 	{
+		swapped = 0;
+
 		for (i = 0; i < size - 1; i++)
 		{
 			if (array[i] > array[i + 1])
@@ -20,7 +23,13 @@ void bubble_sort(int *array, size_t size)
 				array[i] = array[i + 1];
 				array[i + 1] = j;
 				print_array(array, size);
+				swapped = 1;
 			}
+		}
+
+		if (!swapped)
+		{
+			break;
 		}
 	}
 }
